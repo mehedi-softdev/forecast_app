@@ -8,6 +8,7 @@ import com.mehedisoftdev.forecastapp.WeatherApplication
 import com.mehedisoftdev.forecastapp.models.Main
 import com.mehedisoftdev.forecastapp.models.Weather
 import com.mehedisoftdev.forecastapp.models.WeatherX
+import com.mehedisoftdev.forecastapp.repository.Response
 import com.mehedisoftdev.forecastapp.repository.WeatherRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ class MainViewModel(
         reload()
     }
 
-    val weatherData: LiveData<Weather>
+    val weatherData: LiveData<Response<Weather>>
     get() = repo.weatherData
 
     fun reload() {

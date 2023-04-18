@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mehedisoftdev.forecastapp.databinding.ActivityMainBinding
+import com.mehedisoftdev.forecastapp.repository.Response
 import com.mehedisoftdev.forecastapp.utils.Network
 import com.mehedisoftdev.forecastapp.viewmodel.MainViewModel
 import com.mehedisoftdev.forecastapp.viewmodel.MainViewModelFactory
@@ -28,13 +29,28 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this,
                     MainViewModelFactory(this.applicationContext, repo))[MainViewModel::class.java]
 
-        mainViewModel.weatherData.observe(this, Observer {
-            // update data
-            binding.nameTextView.text = it.name
-            binding.tempTextView.text = getTempFormat(it.main.temp.toString())
-            binding.feelsLikeTemp.text = getTempFormat(it.main.feels_like.toString())
-            binding.humidityValue.text = getHumidityFormat(it.main.humidity.toString())
-            binding.windSpeedValue.text = getWindSpeedFormat(it.wind.speed.toString())
+        mainViewModel.weatherData.observe(this, Observer { response ->
+            when(response) {
+                is Response.Loading -> {}
+                is Response.Success -> {
+                    response.data?.let {
+                        // update data
+                        binding.nameTextView.text = it.name
+                        binding.tempTextView.text = getTempFormat(it.main.temp.toString())
+                        binding.feelsLikeTemp.text = getTempFormat(it.main.feels_like.toString())
+                        binding.humidityValue.text = getHumidityFormat(it.main.humidity.toString())
+                        binding.windSpeedValue.text = getWindSpeedFormat(it.wind.speed.toString())
+                    }
+                }
+                is Response.Error -> {
+                    response.errorMessage?.let {
+                        Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+
+
         })
 
         binding.btnRefresh.setOnClickListener {
