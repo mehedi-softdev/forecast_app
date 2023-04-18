@@ -51,9 +51,10 @@ class WeatherApplication : Application() {
     }
 
     private fun initialize() {
-        units = "metric" // to get data in celcius value
-        lat = 23.99
-        lon = 90.42
+        units = "metric" // information measure unit
+        // lat and lon value according to my location
+        lat = 29.047200
+        lon = 77.878800
         appid = "d9c4b1e0bb7590108d74467e820c223b"
 
 
