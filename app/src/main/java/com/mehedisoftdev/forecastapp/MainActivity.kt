@@ -31,7 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.weatherData.observe(this, Observer { response ->
             when(response) {
-                is Response.Loading -> {}
+                is Response.Loading -> {
+                    binding.nameTextView.text = getString(R.string.loading)
+                    binding.tempTextView.text = getString(R.string.loading)
+                    binding.feelsLikeTemp.text = getString(R.string.loading)
+                    binding.humidityValue.text = getString(R.string.loading)
+                    binding.windSpeedValue.text = getString(R.string.loading)
+                }
                 is Response.Success -> {
                     response.data?.let {
                         // update data

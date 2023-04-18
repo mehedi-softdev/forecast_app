@@ -18,6 +18,8 @@ class WeatherRepo(private val weatherService: WeatherService,
 
     suspend fun getWeatherData(lat: Double, lon: Double, units: String, appid: String) {
         if(Network.isInternetAvailable()) {
+            // loading state
+            weatherLiveData.postValue(Response.Loading())
             try {
                 val report = weatherService.getWeatherData(lat, lon, units, appid)
                 if(report!=null) {
@@ -53,6 +55,7 @@ class WeatherRepo(private val weatherService: WeatherService,
             }
         } else {
             // get data from local cache
+           weatherLiveData.postValue(Response.Loading())
           try {
               val main: Main = weatherDatabase.getWeatherDao().getMainData()
               val wind: Wind = weatherDatabase.getWeatherDao().getWindData()

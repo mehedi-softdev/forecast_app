@@ -26,6 +26,7 @@ class MainViewModel(
     get() = repo.weatherData
 
     fun reload() {
+        Response.Loading<Weather>()
         viewModelScope.launch(Dispatchers.IO) {
             // fetch data from api
             val lat = (context as WeatherApplication).lat
