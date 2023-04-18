@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Forecast App</string>
+    <string name="temperature">Temperature</string>
+    <string name="name">name</string>
+    <string name="_20c">20°C</string>
+    <string name="feels_like">Feels like</string>
+    <string name="_30_c">30°C</string>
+    <string name="humidity">Humidity</string>
+    <string name="_12">12 %</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="_3_90">3.90 m/s</string>
+    <string name="last_update_time_string">Auto Data update time (in minutes) : </string>
+    <string name="todo">todo</string>
+</resources>

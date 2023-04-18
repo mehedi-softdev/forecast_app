@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title_text_view"
+        style="?attr/textAppearanceHeadline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/chivo_mono_bold"
+        android:text="@string/temperature"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_text_view"
+        style="?attr/textAppearanceHeadline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/chivo_mono_regular"
+        android:text="@string/name"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_text_view" />
+
+    <TextView
+        android:id="@+id/temp_text_view"
+        style="?attr/textAppearanceHeadline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/chivo_mono_regular"
+        android:text="@string/_20c"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_text_view" />
+
+    <TextView
+        android:id="@+id/feels_like_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:textColor="#816D6D"
+        android:layout_marginTop="30dp"
+        android:text="@string/feels_like"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temp_text_view" />
+
+    <TextView
+        android:id="@+id/feels_like_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:text="@string/_30_c"
+        android:textSize="18sp"
+        android:textColor="#816D6D"
+        app:layout_constraintBottom_toBottomOf="@+id/feels_like_label"
+        app:layout_constraintStart_toEndOf="@+id/feels_like_label"
+        app:layout_constraintTop_toTopOf="@+id/feels_like_label" />
+
+    <TextView
+        android:id="@+id/humidity_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/humidity"
+        android:textSize="18sp"
+        android:textColor="#816D6D"
+        app:layout_constraintStart_toStartOf="@+id/feels_like_label"
+        app:layout_constraintTop_toBottomOf="@+id/feels_like_label" />
+
+    <TextView
+        android:id="@+id/humidity_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_12"
+        android:textSize="18sp"
+        android:textColor="#816D6D"
+        app:layout_constraintBottom_toBottomOf="@+id/humidity_label"
+        app:layout_constraintEnd_toEndOf="@+id/feels_like_temp"
+        app:layout_constraintTop_toTopOf="@+id/humidity_label" />
+
+    <TextView
+        android:id="@+id/wind_speed_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/wind_speed"
+        android:textSize="18sp"
+        android:textColor="#816D6D"
+        app:layout_constraintStart_toStartOf="@+id/humidity_label"
+        app:layout_constraintTop_toBottomOf="@+id/humidity_label" />
+
+    <TextView
+        android:id="@+id/wind_speed_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_3_90"
+        android:textSize="18sp"
+        android:textColor="#816D6D"
+        app:layout_constraintBottom_toBottomOf="@+id/wind_speed_label"
+        app:layout_constraintEnd_toEndOf="@+id/humidity_value"
+        app:layout_constraintTop_toTopOf="@+id/wind_speed_label" />
+
+    <TextView
+        android:id="@+id/last_update_message_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/last_update_time_string"
+        android:textColor="#A71792"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wind_speed_value" />
+
+    <ImageView
+        android:id="@+id/btn_refresh"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_update_message_text_view"
+        app:srcCompat="@drawable/baseline_refresh_24"
+        app:tint="@color/teal_700" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
