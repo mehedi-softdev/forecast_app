@@ -8,3 +8,8 @@
   <li>Have error handling features with generic class along MVVM architecture </li>
   <li> Runs on : Android only </li>
 </ul>
+
+<h3>UI Portraint and Landscape image </h3>
+<img src="https://github.com/mehedi-softdev/public_assets/blob/main/portrait.jpeg?raw=true" alt="portrait" />
+<br>
+<img src="https://github.com/mehedi-softdev/public_assets/blob/main/landscape.jpeg?raw=true" alt="landscape" />
