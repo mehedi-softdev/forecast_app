@@ -10,6 +10,6 @@
 </ul>
 
 <h3>UI Portraint and Landscape image </h3>
-<img width="500" height="600"  src="https://github.com/mehedi-softdev/public_assets/blob/main/portrait.jpeg?raw=true" alt="portrait" />
+<img src="https://github.com/mehedi-softdev/public_assets/blob/main/portrait.jpeg?raw=true" alt="portrait" />
 <br>
-<img width="600" height="500" src="https://github.com/mehedi-softdev/public_assets/blob/main/landscape.jpeg?raw=true" alt="landscape" />
+<img src="https://github.com/mehedi-softdev/public_assets/blob/main/landscape.jpeg?raw=true" alt="landscape" />
