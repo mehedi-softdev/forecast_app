@@ -73,4 +73,7 @@ dependencies {
 
     // background task worker dependencies
     implementation "androidx.work:work-runtime:2.8.1"
+
+    //for location paly services
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
 }

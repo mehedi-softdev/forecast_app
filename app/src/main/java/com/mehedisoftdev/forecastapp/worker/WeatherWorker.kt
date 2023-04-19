@@ -20,9 +20,9 @@ class WeatherWorker(
             val lat = (context as WeatherApplication).lat
             val lon = context.lon
             val units = context.units
-            val appid = context.appid
+            val appid = context.getAppId()
 
-            context.repository.getWeatherData(lat, lon, units, appid)
+            context.repository.getWeatherData(lat!!, lon!!, units, appid)
         }
 
         return Result.success()

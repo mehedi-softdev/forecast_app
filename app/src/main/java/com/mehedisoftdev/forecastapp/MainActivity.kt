@@ -1,8 +1,11 @@
 package com.mehedisoftdev.forecastapp
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,13 +19,29 @@ import com.mehedisoftdev.forecastapp.viewmodel.MainViewModelFactory
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
+    private val MY_PERMISSIONS_REQUEST_LOCATION = 68
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        // enable location
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // taking user permission
+            ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSIONS_REQUEST_LOCATION)
+        }
+
         val repo = (application as WeatherApplication).repository
+
         binding.lastUpdateMessageTextView.text = application.getString(R.string.last_update_time_string)
                                                 .plus(" ")
                                                 .plus((application as WeatherApplication).getIntervalTime().toString())
@@ -61,6 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnRefresh.setOnClickListener {
             // update data
+
             mainViewModel.reload()
             Toast.makeText(this, "Data refreshed!", Toast.LENGTH_SHORT)
                 .show()

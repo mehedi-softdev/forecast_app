@@ -6,6 +6,7 @@
   <li>Uses REST API to call weather information from <b>openweathermap</b></li>
   <li>Added Background worker that fetches data periodically every defined minutes </li>
   <li>Have error handling features with generic class along MVVM architecture </li>
+  <li>Uses user location to get the more accurate data</li>
   <li> Runs on : Android only </li>
 </ul>
 

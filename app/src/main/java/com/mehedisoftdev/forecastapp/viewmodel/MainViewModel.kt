@@ -27,14 +27,15 @@ class MainViewModel(
 
     fun reload() {
         Response.Loading<Weather>()
+        (context as WeatherApplication).refreshLocation() // re locate location data
         viewModelScope.launch(Dispatchers.IO) {
             // fetch data from api
-            val lat = (context as WeatherApplication).lat
-            val lon = context.lon
+            val lat: Double? = (context as WeatherApplication).lat
+            val lon: Double? = context.lon
             val units = context.units
-            val appid = context.appid
+            val appid = context.getAppId()
 
-            repo.getWeatherData(lat, lon, units, appid)
+            repo.getWeatherData(lat!!, lon!!, units, appid)
         }
     }
 
